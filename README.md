@@ -71,7 +71,7 @@ I made it purely for myself... So as long as it works for me, it's perfectly fin
   </tr>
   <tr>
     <td><code>node&nbsp;main</code></td>
-    <td>Do the same what the previous command does, but this time the path to the folder will be taken from .env variable/td>
+    <td>Do the same what the previous command does, but this time the path to the folder will be taken from .env variable</td>
   </tr>
 </table>
 

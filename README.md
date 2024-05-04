@@ -127,6 +127,5 @@ n/a
 
 ## 👤 Author
 
-- Frontend Mentor - [@GrbnvAlex](https://www.frontendmentor.io/profile/GrbnvAlex)
 - Telegram - [@Arlagonix](https://t.me/arlagonix)
 - Github - [@arlagonix](https://github.com/arlagonix)

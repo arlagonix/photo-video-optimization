@@ -1,18 +1,17 @@
-# photo-video-optimization
-
-Reduces the size of photos and videos in a specified folder
-
 <h1 align="center">Photo and Video Size Reducer</h1>
+<p align="center">
+  <strong>
+  Reduces the size of photos and videos in a specified folder
+    </strong>
+</p>
 <p align="center">
   Made with <code>JavaScript</code>, <code>NodeJS</code>
 </p>
 
 <p align="center">
-  <a href="../../actions"><img alt="GitHub Workflow Status" src="https://img.shields.io/github/actions/workflow/status/arlagonix/participants-stats/main.yml"></a>
-  <a href="../../commits"><img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/arlagonix/participants-stats"></a>
+  <a href="../../commits"><img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/arlagonix/photo-video-optimization"></a>
   <a href="./LICENSE"><img alt="GitHub" src="https://img.shields.io/github/license/arlagonix/participants-stats"></a>
-  <img src="https://badgen.net/github/dependabot/arlagonix/participants-stats?logo=dependabot&logoColor=white" />
-  <img src="https://img.shields.io/github/repo-size/arlagonix/participants-stats" />
+  <img src="https://img.shields.io/github/repo-size/arlagonix/photo-video-optimization" />
 </p>
 
 <p align="center">

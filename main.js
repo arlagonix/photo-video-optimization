@@ -89,36 +89,48 @@ fs.readdir(directoryPath, (err, files) => {
 
     try {
       if (fileExtension === ".jpg" || fileExtension === ".jpeg") {
-        (async function () {
-          const data = await sharp(filePath).jpeg({ quality: 75 }).toBuffer();
-          fs.writeFileSync(optimizedFilePath, data);
-        })();
-        consoleLogStats(file, filePath, optimizedFilePath);
+        sharp(filePath)
+          .jpeg({ quality: 75 })
+          .toBuffer()
+          .then((data) => {
+            fs.writeFileSync(optimizedFilePath, data);
+            consoleLogStats(file, filePath, optimizedFilePath);
+          })
+          .catch((err) => {
+            console.error(`🔴 Error processing file: ${file}`, err);
+          });
         continue;
       }
       if (fileExtension === ".png") {
-        (async function () {
-          const data = await sharp(filePath)
-            .png({ compressionLevel: 6 })
-            .toBuffer();
-          fs.writeFileSync(optimizedFilePath, data);
-        })();
-        consoleLogStats(file, filePath, optimizedFilePath);
+        sharp(filePath)
+          .png({ compressionLevel: 6 })
+          .toBuffer()
+          .then((data) => {
+            fs.writeFileSync(optimizedFilePath, data);
+            consoleLogStats(file, filePath, optimizedFilePath);
+          })
+          .catch((err) => {
+            console.error(`🔴 Error processing file: ${file}`, err);
+          });
         continue;
       }
       if (fileExtension === ".mp4") {
-        (async function () {
-          await new Promise((resolve, reject) => {
-            ffmpeg(filePath)
-              .outputOptions(["-codec:v libx264", "-crf 28", "-preset slow"])
-              .on("error", (err) => {
-                console.error(`🔴 Error processing file: ${file}`, err);
-                reject(err);
-              })
-              .save(optimizedFilePath);
+        new Promise((resolve, reject) => {
+          ffmpeg(filePath)
+            .outputOptions(["-codec:v libx264", "-crf 28", "-preset slow"])
+            .on("end", resolve) // Ensure you resolve the promise on completion
+            .on("error", (err) => {
+              console.error(`🔴 Error processing file: ${file}`, err);
+              reject(err);
+            })
+            .save(optimizedFilePath);
+        })
+          .then(() => {
+            consoleLogStats(file, filePath, optimizedFilePath);
+          })
+          .catch((err) => {
+            console.error(`🔴 Error in processing: ${err}`);
           });
-        })();
-        consoleLogStats(file, filePath, optimizedFilePath);
         continue;
       }
       if (fileExtension === "") continue;
